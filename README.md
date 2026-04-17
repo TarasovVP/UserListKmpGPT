@@ -25,8 +25,9 @@ Kotlin Multiplatform sample app that loads users from the DummyJSON `/users` end
 - `./gradlew :composeApp:compileKotlinIosSimulatorArm64`
 - `./gradlew :webApp:jsDevelopmentExecutableCompileSync`
 - `./gradlew :shared:desktopTest :shared:testDebugUnitTest`
+- `xcodebuild -project "iosApp/iosApp.xcodeproj" -scheme iosApp -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build`
 
 ## Notes
 
-- The shared Kotlin iOS code compiles, and `iosApp` contains the Swift host sources, but a full Xcode project is not generated in this repository.
+- `iosApp/iosApp.xcodeproj` hosts the iOS app and uses `:composeApp:embedAndSignAppleFrameworkForXcode` to build and embed the shared Compose framework.
 - Web caching uses SQLDelight's JS worker driver. With the default SQL.js worker, browser persistence is limited and may not survive a full page reload without a custom persistent worker backend.

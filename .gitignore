@@ -1,4 +1,6 @@
 # Project exclude paths
+.claude/
+.kotlin/
 /.gradle/
 /build/
 /composeApp/build/
